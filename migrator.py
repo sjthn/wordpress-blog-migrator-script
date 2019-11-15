@@ -1,8 +1,23 @@
 import xml.etree.ElementTree as ET
+from os import mkdir
+from os import path
 
-source = "/Users/srijithn/Downloads/therubberduckdev.wordpress.com-2019-11-15-06_51_55/therubberduckdev.wordpress.2019-11-15.post_type-post.author-129349368.status-publish.001.xml"
+source = input("Please provide the path of the file from which to extract ").strip()
+if not path.exists(source):
+    print("Couldn't find file at specified path")
+    exit()
 
-destination = "/Users/srijithn/PycharmProjects/wordpress_blogs"
+if not source.lower().endswith(".xml"):
+    print("Yo!...The source file should be an xml")
+    exit()
+
+destination = input("Please provide the directory path where you wanna store the files ").strip()
+if not path.isdir(destination):
+    if not path.exists(destination):
+        mkdir(destination)
+    else:
+        print("The given destination is not a directory.")
+        exit()
 
 ns = {
     "content": "http://purl.org/rss/1.0/modules/content/",
