@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+from datetime import datetime
 from os import mkdir
 from os import path
 
@@ -54,7 +55,9 @@ posts = filter(filter_posts, items)
 
 count = 0
 for post in posts:
-    file = open(destination + "/" + post.find("wp:post_name", ns).text + ".md", "w")
+    post_date_time = post.find("wp:post_date", ns).text
+    post_date = datetime.strptime(post_date_time, "%Y-%m-%d %H:%M:%S").date()
+    file = open(destination + "/" + post_date.__str__() + "-" + post.find("wp:post_name", ns).text + ".md", "w")
     file.write(post.find("content:encoded", ns).text)
     count = count + 1
 

@@ -14,7 +14,7 @@ As of now extracts contents only from published blog posts.
 
 As of now this script lacks few features mentioned below as TODOs:
 
-- [ ] The file name should follow the given format (Year-Month-Day-title.md) for jekyll to recognise it
+- [x] The file name should follow the given format (Year-Month-Day-title.md) for jekyll to recognise it
 - [ ] Add post title as front matter on md files (Extract title from xml)
 - [ ] Add post layout as front matter on md files (Get as user input)
 - [ ] Add mechanism to extract images exported from wordpress and show them for respective posts
